@@ -76,18 +76,46 @@ namespace ToDo_Final // Kendi projenin namespace adını buraya yazmalısın
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            // TODO: SQL Server bağlantısı eklenecek.
-            if (username == "admin" && password == "123")
+            // Sunucu adını (Server) kendi SQL Server ismine göre güncellemelisin. 
+            // "." veya "localhost" genellikle yerel sunucuyu temsil eder.
+            string connectionString = @"Server=AD\SQLEXPRESS;Database=ASyncTaskDB;Trusted_Connection=True;TrustServerCertificate=True;";
+
+            using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
             {
-                MessageBox.Show("Yönetici girişi başarılı. Tüm yetkilere sahipsiniz.", "Hoş Geldiniz", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (username == "calisan" && password == "123")
-            {
-                MessageBox.Show("Çalışan girişi başarılı. Sınırlı yetki ile devam ediyorsunuz.", "Hoş Geldiniz", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Hatalı kullanıcı adı veya şifre!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    conn.Open(); // Veritabanı kapısını aç
+
+                    // Kullanıcı adı ve şifreyi güvenli bir şekilde kontrol eden SQL sorgusu
+                    string query = "SELECT Role, ThemeColor FROM Users WHERE Username = @user AND Password = @pass";
+
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+                    {
+                        // Parametreleri ekle (SQL Injection saldırılarını önlemek için zorunludur)
+                        cmd.Parameters.AddWithValue("@user", username);
+                        cmd.Parameters.AddWithValue("@pass", password);
+
+                        using (System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read()) // Eğer eşleşen bir kayıt bulunursa
+                            {
+                                string role = reader["Role"].ToString();
+                                string themeColor = reader["ThemeColor"].ToString();
+
+                                MessageBox.Show($"{role} olarak giriş yapıldı!\nKayıtlı Tema Renginiz: {themeColor}", "Hoş Geldiniz", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Hatalı kullanıcı adı veya şifre!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Bağlantı başarısız olursa nedenini göster
+                    MessageBox.Show("Veritabanına bağlanılamadı. Hata: " + ex.Message, "Bağlantı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

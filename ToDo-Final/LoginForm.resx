@@ -120,11 +120,14 @@
   <metadata name="elipseLoginForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>49</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="picLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAa8AAAGvCAYAAADsa1oBAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        cwAAEnMBjCK5BwAATAdJREFUeF7tnVnQbldZ51FBQKZMZ8qZvjPkDElO+EgIJhBMxIRqo12VKBjQhAi2
+        cQAAEnEB89x6jgAATAdJREFUeF7tnVnQbldZ51FBQKZMZ8qZvjPkDElO+EgIJhBMxIRqo12VKBjQhAi2
         GgxoVQsoQ5DQ2oUQrBKVJGC3CklICFMCmSDIGMAJFcfLBi5MldUXubAq1QK7a+2z1zrPfoa113732vvd
         w//iVw9By4u3tH7+3v+3Xp5w+t5zCgAAAGBKPIH/GwAAAMDYgbwAAABMDsgLAADA5IC8AAAATA7ICwAA
         wOSAvAAAAEwOyAsAAMDkgLwAAABMDsgLAADA5IC8AAAATA7ICwAAwOSAvAAAAEwOyAsAAMDkgLwAAABM

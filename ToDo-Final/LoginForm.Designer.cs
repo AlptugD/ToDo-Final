@@ -29,110 +29,110 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
-            guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            elipseLoginForm = new Guna.UI2.WinForms.Guna2Elipse(components);
+            shadowLoginForm = new Guna.UI2.WinForms.Guna2ShadowForm(components);
+            txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            btnLogin = new Guna.UI2.WinForms.Guna2Button();
+            btnExit = new Guna.UI2.WinForms.Guna2ControlBox();
             SuspendLayout();
             // 
-            // guna2Elipse1
+            // elipseLoginForm
             // 
-            guna2Elipse1.BorderRadius = 20;
-            guna2Elipse1.TargetControl = this;
+            elipseLoginForm.BorderRadius = 20;
+            elipseLoginForm.TargetControl = this;
             // 
-            // guna2ShadowForm1
+            // shadowLoginForm
             // 
-            guna2ShadowForm1.TargetForm = this;
+            shadowLoginForm.TargetForm = this;
             // 
-            // guna2TextBox1
+            // txtUsername
             // 
-            guna2TextBox1.BorderRadius = 15;
-            guna2TextBox1.CustomizableEdges = customizableEdges7;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(158, 54);
-            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PlaceholderText = "Kullanıcı Adı";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2TextBox1.Size = new Size(286, 60);
-            guna2TextBox1.TabIndex = 0;
+            txtUsername.BorderRadius = 15;
+            txtUsername.CustomizableEdges = customizableEdges9;
+            txtUsername.DefaultText = "";
+            txtUsername.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtUsername.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtUsername.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtUsername.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtUsername.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtUsername.Font = new Font("Segoe UI", 9F);
+            txtUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtUsername.Location = new Point(158, 54);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PlaceholderText = "Kullanıcı Adı";
+            txtUsername.SelectedText = "";
+            txtUsername.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtUsername.Size = new Size(286, 60);
+            txtUsername.TabIndex = 0;
             // 
-            // guna2TextBox2
+            // txtPassword
             // 
-            guna2TextBox2.BorderRadius = 15;
-            guna2TextBox2.CustomizableEdges = customizableEdges5;
-            guna2TextBox2.DefaultText = "";
-            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Font = new Font("Segoe UI", 9F);
-            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(158, 143);
-            guna2TextBox2.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox2.Name = "guna2TextBox2";
-            guna2TextBox2.PlaceholderText = "Şifre";
-            guna2TextBox2.SelectedText = "";
-            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2TextBox2.Size = new Size(286, 60);
-            guna2TextBox2.TabIndex = 1;
-            guna2TextBox2.UseSystemPasswordChar = true;
+            txtPassword.BorderRadius = 15;
+            txtPassword.CustomizableEdges = customizableEdges11;
+            txtPassword.DefaultText = "";
+            txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPassword.Font = new Font("Segoe UI", 9F);
+            txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPassword.Location = new Point(158, 143);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = "Şifre";
+            txtPassword.SelectedText = "";
+            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtPassword.Size = new Size(286, 60);
+            txtPassword.TabIndex = 1;
+            txtPassword.UseSystemPasswordChar = true;
             // 
-            // guna2Button1
+            // btnLogin
             // 
-            guna2Button1.BorderRadius = 15;
-            guna2Button1.CustomizableEdges = customizableEdges3;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.Font = new Font("Segoe UI", 9F);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(189, 232);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button1.Size = new Size(225, 56);
-            guna2Button1.TabIndex = 2;
-            guna2Button1.Text = "Giriş Yap";
+            btnLogin.BorderRadius = 15;
+            btnLogin.CustomizableEdges = customizableEdges13;
+            btnLogin.DisabledState.BorderColor = Color.DarkGray;
+            btnLogin.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnLogin.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnLogin.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnLogin.Font = new Font("Segoe UI", 9F);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(189, 232);
+            btnLogin.Name = "btnLogin";
+            btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnLogin.Size = new Size(225, 56);
+            btnLogin.TabIndex = 2;
+            btnLogin.Text = "Giriş Yap";
             // 
-            // guna2ControlBox1
+            // btnExit
             // 
-            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.CustomizableEdges = customizableEdges1;
-            guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
-            guna2ControlBox1.IconColor = Color.White;
-            guna2ControlBox1.Location = new Point(547, 0);
-            guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2ControlBox1.Size = new Size(56, 36);
-            guna2ControlBox1.TabIndex = 3;
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.CustomizableEdges = customizableEdges15;
+            btnExit.FillColor = Color.FromArgb(139, 152, 166);
+            btnExit.IconColor = Color.White;
+            btnExit.Location = new Point(547, 0);
+            btnExit.Name = "btnExit";
+            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnExit.Size = new Size(56, 36);
+            btnExit.TabIndex = 3;
             // 
             // LoginForm
             // 
             ClientSize = new Size(603, 401);
-            Controls.Add(guna2ControlBox1);
-            Controls.Add(guna2Button1);
-            Controls.Add(guna2TextBox2);
-            Controls.Add(guna2TextBox1);
+            Controls.Add(btnExit);
+            Controls.Add(btnLogin);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUsername);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -142,11 +142,11 @@
         #endregion
 
 
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2Elipse elipseLoginForm;
+        private Guna.UI2.WinForms.Guna2TextBox txtPassword;
+        private Guna.UI2.WinForms.Guna2TextBox txtUsername;
+        private Guna.UI2.WinForms.Guna2ShadowForm shadowLoginForm;
+        private Guna.UI2.WinForms.Guna2Button btnLogin;
+        private Guna.UI2.WinForms.Guna2ControlBox btnExit;
     }
 }

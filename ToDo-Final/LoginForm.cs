@@ -102,7 +102,14 @@ namespace ToDo_Final // Kendi projenin namespace adını buraya yazmalısın
                                 string role = reader["Role"].ToString();
                                 string themeColor = reader["ThemeColor"].ToString();
 
-                                MessageBox.Show($"{role} olarak giriş yapıldı!\nKayıtlı Tema Renginiz: {themeColor}", "Hoş Geldiniz", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // Hoş geldin mesajını göster
+                                MessageBox.Show($"{role} olarak giriş yapıldı!", "Hoş Geldiniz", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                // Köprüyü kur: DashboardForm'a bilgileri göndererek oluştur
+                                DashboardForm dashboard = new DashboardForm(username, role, themeColor);
+                                dashboard.Show(); // Ana formu göster
+
+                                this.Hide(); // Giriş formunu arka planda gizle
                             }
                             else
                             {

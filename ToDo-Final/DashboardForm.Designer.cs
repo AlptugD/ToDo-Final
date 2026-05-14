@@ -182,6 +182,7 @@
             btnChangeTheme.Size = new Size(225, 56);
             btnChangeTheme.TabIndex = 3;
             btnChangeTheme.Text = "Tema Rengi Seç";
+            btnChangeTheme.Click += btnChangeTheme_Click;
             // 
             // lblUserRole
             // 

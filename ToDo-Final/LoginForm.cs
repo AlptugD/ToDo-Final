@@ -80,7 +80,7 @@ namespace ToDo_Final // Kendi projenin namespace adını buraya yazmalısın
             // "." veya "localhost" genellikle yerel sunucuyu temsil eder.
             string connectionString = @"Server=AD\SQLEXPRESS;Database=ASyncTaskDB;Trusted_Connection=True;TrustServerCertificate=True;";
 
-            using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+            using (Microsoft.Data.SqlClient.SqlConnection conn = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
             {
                 try
                 {
@@ -89,13 +89,13 @@ namespace ToDo_Final // Kendi projenin namespace adını buraya yazmalısın
                     // Kullanıcı adı ve şifreyi güvenli bir şekilde kontrol eden SQL sorgusu
                     string query = "SELECT Role, ThemeColor FROM Users WHERE Username = @user AND Password = @pass";
 
-                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+                    using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(query, conn))
                     {
                         // Parametreleri ekle (SQL Injection saldırılarını önlemek için zorunludur)
                         cmd.Parameters.AddWithValue("@user", username);
                         cmd.Parameters.AddWithValue("@pass", password);
 
-                        using (System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                        using (Microsoft.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read()) // Eğer eşleşen bir kayıt bulunursa
                             {

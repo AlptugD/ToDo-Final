@@ -16,6 +16,9 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
         {
             InitializeComponent();
 
+            // Bu satır, formun özelliklerini ezip kesinlikle ekranın ortasında açılmasını emreder.
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             // Gelen kargoyu (bilgileri) kendi değişkenlerimize atıyoruz
             currentUser = username;
             currentRole = role;
@@ -56,6 +59,68 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
                 // Yöneticiyse tüm paneller aktif kalır
                 if (pnlAddTask != null) pnlAddTask.Visible = true;
                 if (taskCalendar != null) taskCalendar.Enabled = true;
+            }
+        }
+
+        private void btnChangeTheme_Click(object sender, EventArgs e)
+        {
+            // 1. Windows'un hazır renk seçici penceresini oluştur
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.FullOpen = true; // Özel renkler oluşturmaya izin ver
+
+            // 2. Eğer kullanıcı bir renk seçip "Tamam"a basarsa
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Seçilen rengi al ve forma (veya panele) uygula
+                Color selectedColor = colorDialog.Color;
+                this.BackColor = selectedColor;
+
+                // Eğer rengi sadece sol menüye uygulamak istersen üstteki satırı silip şunu kullanabilirsin:
+                // pnlSidebar.FillColor = selectedColor;
+
+                // 3. Seçilen rengi veritabanının anlayacağı HEX formatına (Örn: #1A1F2E) dönüştür
+                string hexColor = "#" + selectedColor.R.ToString("X2") + selectedColor.G.ToString("X2") + selectedColor.B.ToString("X2");
+
+                // 4. Veritabanını güncelle
+                UpdateThemeInDatabase(hexColor);
+            }
+        }
+
+        // Veritabanına bağlanıp kullanıcının renk tercihini güncelleyen özel metot
+        private void UpdateThemeInDatabase(string newThemeHex)
+        {
+            string connectionString = @"Server=AD\SQLEXPRESS;Database=ASyncTaskDB;Trusted_Connection=True;TrustServerCertificate=True;";
+
+            using (Microsoft.Data.SqlClient.SqlConnection conn = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // UPDATE sorgusu: Sadece o an giriş yapmış olan kişinin (currentUser) rengini değiştirir
+                    string query = "UPDATE Users SET ThemeColor = @theme WHERE Username = @user";
+
+                    using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(query, conn))
+                    {
+                        // Parametreleri ekleyerek güvenliği sağlıyoruz
+                        cmd.Parameters.AddWithValue("@theme", newThemeHex);
+                        cmd.Parameters.AddWithValue("@user", currentUser); // Form açılırken hafızaya aldığımız kullanıcı adı
+
+                        int result = cmd.ExecuteNonQuery(); // Sorguyu çalıştır
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Çalışma alanı renginiz başarıyla kaydedildi!", "Tema Güncellendi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Hafızadaki rengi de yenisiyle değiştiriyoruz ki program çalışırken uyumsuzluk olmasın
+                            currentThemeHex = newThemeHex;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Renk veritabanına kaydedilirken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

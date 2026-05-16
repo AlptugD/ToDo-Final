@@ -1,4 +1,4 @@
-﻿namespace ToDo_Final
+namespace ToDo_Final
 {
     partial class DashboardForm
     {
@@ -70,7 +70,6 @@
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             btnLogOut = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             btnChangeTheme = new Guna.UI2.WinForms.Guna2Button();
             pnlTaskDetails = new Guna.UI2.WinForms.Guna2Panel();
@@ -109,7 +108,6 @@
             pnlMain.Controls.Add(flpTasks);
             pnlMain.Controls.Add(pnlAddTask);
             pnlMain.Controls.Add(taskCalendar);
-            pnlMain.Controls.Add(guna2Button1);
             pnlMain.CustomizableEdges = customizableEdges31;
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.ForeColor = Color.Transparent;
@@ -162,7 +160,7 @@
             // 
             guna2CustomGradientPanel1.Controls.Add(guna2CirclePictureBox1);
             guna2CustomGradientPanel1.Controls.Add(btnLogOut);
-            guna2CustomGradientPanel1.Controls.Add(guna2Button5);
+            guna2CustomGradientPanel1.Controls.Add(guna2Button1);
             guna2CustomGradientPanel1.Controls.Add(guna2Button4);
             guna2CustomGradientPanel1.Controls.Add(btnChangeTheme);
             guna2CustomGradientPanel1.CustomizableEdges = customizableEdges14;
@@ -209,27 +207,7 @@
             btnLogOut.TabIndex = 3;
             btnLogOut.Text = "Çıkış Yap";
             btnLogOut.Click += btnLogOut_Click;
-            // 
-            // guna2Button5
-            // 
-            guna2Button5.BackColor = Color.Transparent;
-            guna2Button5.BorderColor = Color.Silver;
-            guna2Button5.BorderRadius = 15;
-            guna2Button5.BorderThickness = 2;
-            guna2Button5.CustomizableEdges = customizableEdges8;
-            guna2Button5.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button5.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button5.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button5.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button5.Font = new Font("Segoe UI", 11F);
-            guna2Button5.ForeColor = Color.White;
-            guna2Button5.HoverState.ForeColor = Color.FromArgb(248, 250, 252);
-            guna2Button5.Location = new Point(8, 173);
-            guna2Button5.Name = "guna2Button5";
-            guna2Button5.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            guna2Button5.Size = new Size(225, 56);
-            guna2Button5.TabIndex = 5;
-            guna2Button5.Text = "Takvim";
+
             // 
             // guna2Button4
             // 
@@ -401,7 +379,10 @@
             // 
             // guna2Button1
             // 
+            guna2Button1.BackColor = Color.Transparent;
+            guna2Button1.BorderColor = Color.Silver;
             guna2Button1.BorderRadius = 15;
+            guna2Button1.BorderThickness = 2;
             guna2Button1.CustomizableEdges = customizableEdges29;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -409,11 +390,12 @@
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.Font = new Font("Segoe UI", 11F);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(578, 7);
+            guna2Button1.HoverState.ForeColor = Color.FromArgb(248, 250, 252);
+            guna2Button1.Location = new Point(8, 173);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Button1.Size = new Size(225, 56);
-            guna2Button1.TabIndex = 1;
+            guna2Button1.TabIndex = 5;
             guna2Button1.Text = "Ana Sayfa";
             // 
             // guna2ShadowForm1
@@ -480,7 +462,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnLogOut;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button btnChangeTheme;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;

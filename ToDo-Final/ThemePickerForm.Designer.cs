@@ -60,6 +60,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 12F);
+            guna2HtmlLabel1.ForeColor = Color.White;
             guna2HtmlLabel1.Location = new Point(12, 30);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(101, 30);

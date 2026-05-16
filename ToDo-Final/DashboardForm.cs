@@ -121,7 +121,24 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Hesabınızdan çıkış yapmak istediğinize emin misiniz?", "Çıkış Yap", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            // Eğer kullanıcı 'Evet' (Yes) butonuna basarsa
+            if (result == DialogResult.Yes)
+            {
+                // Programı en baştan, temiz bir şekilde yeniden başlat (LoginForm açılır)
+                Application.Restart();
+            }
+        }
+
+        private void DashboardForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

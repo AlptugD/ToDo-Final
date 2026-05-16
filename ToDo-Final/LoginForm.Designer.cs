@@ -150,6 +150,7 @@
             // 
             Logotxt.BackColor = Color.Transparent;
             Logotxt.Font = new Font("Segoe UI", 10F);
+            Logotxt.ForeColor = SystemColors.Control;
             Logotxt.Location = new Point(1, 90);
             Logotxt.Name = "Logotxt";
             Logotxt.Size = new Size(94, 25);
@@ -160,6 +161,7 @@
             // 
             Headertxt.BackColor = Color.Transparent;
             Headertxt.Font = new Font("Segoe UI", 16F);
+            Headertxt.ForeColor = SystemColors.Control;
             Headertxt.Location = new Point(278, 90);
             Headertxt.Name = "Headertxt";
             Headertxt.Size = new Size(153, 39);
@@ -168,6 +170,7 @@
             // 
             // LoginForm
             // 
+            BackColor = Color.FromArgb(36, 32, 55);
             ClientSize = new Size(709, 496);
             Controls.Add(Headertxt);
             Controls.Add(Logotxt);
@@ -176,6 +179,7 @@
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
+            ForeColor = SystemColors.Control;
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -47,28 +47,48 @@ namespace ToDo_Final // Kendi projenin namespace adını buraya yazmalısın
                 btnLogin.Left = centerWidth - (btnLogin.Width / 2);
         }
 
-        // Dinamik renkleri uygulayan metot
+        // Dinamik renkleri ve modern arayüz tasarımını uygulayan metot
         private void ApplyThemeColors()
         {
-            this.BackColor = appBackgroundColor;
 
             if (btnLogin != null)
             {
                 btnLogin.FillColor = appThemeColor;
                 btnLogin.ForeColor = Color.White;
+                // Buton gölgesi
+                btnLogin.ShadowDecoration.Enabled = true;
+                btnLogin.ShadowDecoration.BorderRadius = btnLogin.BorderRadius > 0 ? btnLogin.BorderRadius : 15;
+                btnLogin.ShadowDecoration.Color = ControlPaint.Dark(appThemeColor, 0.2f);
+                btnLogin.ShadowDecoration.Depth = 15;
             }
 
-            if (txtUsername != null)
-            {
-                txtUsername.FocusedState.BorderColor = appThemeColor;
-                txtUsername.HoverState.BorderColor = appThemeColor;
-            }
+            // Metin kutularını modernleştir
+            ModernizeTextBox(txtUsername);
+            ModernizeTextBox(txtPassword);
+        }
 
-            if (txtPassword != null)
-            {
-                txtPassword.FocusedState.BorderColor = appThemeColor;
-                txtPassword.HoverState.BorderColor = appThemeColor;
-            }
+        private void ModernizeTextBox(Guna.UI2.WinForms.Guna2TextBox txt)
+        {
+            if (txt == null) return;
+            
+            txt.BorderRadius = 15;
+            txt.BorderThickness = 1;
+            txt.BorderColor = Color.FromArgb(210, 210, 210);
+            txt.FillColor = Color.White;
+            
+            // Odaklanma renkleri
+            txt.FocusedState.BorderColor = appThemeColor;
+            txt.HoverState.BorderColor = appThemeColor;
+
+            // Yazı tipi ve dolgu
+            txt.Font = new Font("Segoe UI", 11F);
+            txt.ForeColor = Color.FromArgb(64, 64, 64);
+            
+            // Hafif bir gölge efekti
+            txt.ShadowDecoration.Enabled = true;
+            txt.ShadowDecoration.BorderRadius = 15;
+            txt.ShadowDecoration.Color = Color.LightGray;
+            txt.ShadowDecoration.Depth = 10;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

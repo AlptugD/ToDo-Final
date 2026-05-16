@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -28,6 +28,61 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
             this.Load += DashboardForm_Load;
         }
 
+        // Rengi belirtilen oranda açan (beyaza yaklaştıran) yardımcı metot
+        private Color LightenColor(Color color, double amount)
+        {
+            int r = (int)((255 - color.R) * amount) + color.R;
+            int g = (int)((255 - color.G) * amount) + color.G;
+            int b = (int)((255 - color.B) * amount) + color.B;
+            return Color.FromArgb(color.A, Math.Min(255, Math.Max(0, r)), Math.Min(255, Math.Max(0, g)), Math.Min(255, Math.Max(0, b)));
+        }
+
+        // Butonlara renk ve modern gölge efekti uygulayan yardımcı metot
+        private void ApplyButtonModernStyle(Guna.UI2.WinForms.Guna2Button btn, Color fillColor)
+        {
+            if (btn == null) return;
+            
+            btn.FillColor = fillColor;
+            
+            // Sadece arka planı olan (ana ekran) butonlara gölge veriyoruz
+            if (fillColor != Color.Transparent)
+            {
+                btn.ShadowDecoration.Enabled = true;
+                btn.ShadowDecoration.BorderRadius = btn.BorderRadius > 0 ? btn.BorderRadius : 10;
+                btn.ShadowDecoration.Color = ControlPaint.Dark(fillColor, 0.2f); // Gölge rengini temanın koyusu yapıyoruz (daha doğal)
+            }
+        }
+
+        private void ApplyTheme(Color themeColor)
+        {
+            // Kullanıcının seçtiği temanın rengini doğrudan form arka planı yapıyoruz
+            this.BackColor = themeColor;
+            if (pnlMain != null) pnlMain.BackColor = themeColor;
+            
+            // Görev ekleme paneli gibi iç panelleri seçilen renkten daha açık/farklı bir tona boyayarak kontrast oluşturuyoruz
+            if (pnlAddTask != null) pnlAddTask.FillColor = LightenColor(themeColor, 0.60); // Arka planla uyumlu açık ton
+
+            // Sol menüyü (sidebar) seçilen rengin daha koyu bir tonu yaparak modern bir kontrast ve derinlik sağlıyoruz
+            if (guna2CustomGradientPanel1 != null)
+            {
+                guna2CustomGradientPanel1.FillColor = ControlPaint.Dark(themeColor, 0.05f);
+                guna2CustomGradientPanel1.FillColor2 = ControlPaint.Dark(themeColor, 0.15f);
+            }
+
+            // Ana ekrandaki önemli butonların rengini kontrast sağlaması için koyulaştırıyoruz ve gölge ekliyoruz
+            Color buttonColor = ControlPaint.Dark(themeColor, 0.1f);
+            ApplyButtonModernStyle(btnAddTask, buttonColor);
+            ApplyButtonModernStyle(btnSendComment, buttonColor);
+            ApplyButtonModernStyle(guna2Button1, buttonColor);
+
+            // Takvim arka planını da temaya uygun yapıyoruz
+            if (taskCalendar != null)
+            {
+                taskCalendar.FillColor = buttonColor;
+                taskCalendar.ForeColor = Color.White;
+            }
+        }
+
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             // 1. Profil Bilgilerini Ekrana Yazdır
@@ -38,11 +93,11 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
             try
             {
                 Color themeColor = ColorTranslator.FromHtml(currentThemeHex);
-                this.BackColor = themeColor; // Veya pnlSidebar.FillColor = themeColor; şeklinde özelleştirebilirsin
+                ApplyTheme(themeColor);
             }
             catch
             {
-                this.BackColor = Color.White; // Renk kodu hatalıysa varsayılan renk
+                ApplyTheme(Color.FromArgb(138, 35, 135)); // Renk kodu hatalıysa varsayılan mor tema
             }
 
             // 3. Rol Kontrolü ve Yetkilendirme (En Önemli Kısım)
@@ -70,9 +125,8 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
                 {
                     Color selectedColor = themePicker.SelectedColor;
 
-                    // Seçilen rengi ana forma uygula
-                    this.BackColor = selectedColor;
-                    // Eğer sol menüyü boyamak istersen: pnlSidebar.FillColor = selectedColor;
+                    // Seçilen rengi modern arayüz fonksiyonu ile uygula
+                    ApplyTheme(selectedColor);
 
                     // Rengi HEX formatına çevirip veritabanına kaydet
                     string hexColor = "#" + selectedColor.R.ToString("X2") + selectedColor.G.ToString("X2") + selectedColor.B.ToString("X2");

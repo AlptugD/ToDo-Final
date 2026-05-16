@@ -54,22 +54,22 @@ namespace ToDo_Final
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             pnlMain = new Guna.UI2.WinForms.Guna2Panel();
-            btnAddTask = new Guna.UI2.WinForms.Guna2Button();
-            txtTaskTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            taskCalendar = new Guna.UI2.WinForms.Guna2DateTimePicker();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             btnLogOut = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             btnChangeTheme = new Guna.UI2.WinForms.Guna2Button();
             pnlTaskDetails = new Guna.UI2.WinForms.Guna2Panel();
@@ -78,10 +78,10 @@ namespace ToDo_Final
             txtComment = new Guna.UI2.WinForms.Guna2TextBox();
             flpComments = new FlowLayoutPanel();
             flpTasks = new FlowLayoutPanel();
-            pnlAddTask = new Guna.UI2.WinForms.Guna2Panel();
+            txtTaskTitle = new Guna.UI2.WinForms.Guna2TextBox();
             txtTaskDesc = new Guna.UI2.WinForms.Guna2TextBox();
-            taskCalendar = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            btnAddTask = new Guna.UI2.WinForms.Guna2Button();
+            pnlAddTask = new Guna.UI2.WinForms.Guna2Panel();
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             lblUserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblUserRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -100,14 +100,12 @@ namespace ToDo_Final
             // pnlMain
             // 
             pnlMain.BackColor = Color.Transparent;
-            pnlMain.Controls.Add(btnAddTask);
-            pnlMain.Controls.Add(txtTaskTitle);
+            pnlMain.Controls.Add(taskCalendar);
             pnlMain.Controls.Add(guna2ControlBox1);
             pnlMain.Controls.Add(guna2CustomGradientPanel1);
             pnlMain.Controls.Add(pnlTaskDetails);
             pnlMain.Controls.Add(flpTasks);
             pnlMain.Controls.Add(pnlAddTask);
-            pnlMain.Controls.Add(taskCalendar);
             pnlMain.CustomizableEdges = customizableEdges31;
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.ForeColor = Color.Transparent;
@@ -117,31 +115,20 @@ namespace ToDo_Final
             pnlMain.Size = new Size(1298, 741);
             pnlMain.TabIndex = 1;
             // 
-            // btnAddTask
+            // taskCalendar
             // 
-            btnAddTask.CustomizableEdges = customizableEdges1;
-            btnAddTask.DisabledState.BorderColor = Color.DarkGray;
-            btnAddTask.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnAddTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnAddTask.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddTask.Font = new Font("Segoe UI", 9F);
-            btnAddTask.ForeColor = Color.White;
-            btnAddTask.Location = new Point(242, 268);
-            btnAddTask.Name = "btnAddTask";
-            btnAddTask.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnAddTask.Size = new Size(166, 35);
-            btnAddTask.TabIndex = 2;
-            btnAddTask.Text = "Görev Ekle";
-            // 
-            // txtTaskTitle
-            // 
-            txtTaskTitle.BackColor = Color.Transparent;
-            txtTaskTitle.Font = new Font("Segoe UI", 14F);
-            txtTaskTitle.Location = new Point(1014, 7);
-            txtTaskTitle.Name = "txtTaskTitle";
-            txtTaskTitle.Size = new Size(160, 33);
-            txtTaskTitle.TabIndex = 0;
-            txtTaskTitle.Text = "Görev Detayları";
+            taskCalendar.Checked = true;
+            taskCalendar.CustomizableEdges = customizableEdges1;
+            taskCalendar.Font = new Font("Segoe UI", 9F);
+            taskCalendar.Format = DateTimePickerFormat.Long;
+            taskCalendar.Location = new Point(242, 12);
+            taskCalendar.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            taskCalendar.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            taskCalendar.Name = "taskCalendar";
+            taskCalendar.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            taskCalendar.Size = new Size(250, 45);
+            taskCalendar.TabIndex = 3;
+            taskCalendar.Value = new DateTime(2026, 5, 13, 14, 15, 48, 316);
             // 
             // guna2ControlBox1
             // 
@@ -207,7 +194,27 @@ namespace ToDo_Final
             btnLogOut.TabIndex = 3;
             btnLogOut.Text = "Çıkış Yap";
             btnLogOut.Click += btnLogOut_Click;
-
+            // 
+            // guna2Button1
+            // 
+            guna2Button1.BackColor = Color.Transparent;
+            guna2Button1.BorderColor = Color.Silver;
+            guna2Button1.BorderRadius = 15;
+            guna2Button1.BorderThickness = 2;
+            guna2Button1.CustomizableEdges = customizableEdges8;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.Font = new Font("Segoe UI", 11F);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.HoverState.ForeColor = Color.FromArgb(248, 250, 252);
+            guna2Button1.Location = new Point(8, 173);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2Button1.Size = new Size(225, 56);
+            guna2Button1.TabIndex = 5;
+            guna2Button1.Text = "Ana Sayfa";
             // 
             // guna2Button4
             // 
@@ -325,25 +332,40 @@ namespace ToDo_Final
             // flpTasks
             // 
             flpTasks.AutoScroll = true;
-            flpTasks.Location = new Point(242, 309);
+            flpTasks.FlowDirection = FlowDirection.TopDown;
+            flpTasks.Location = new Point(242, 130);
             flpTasks.Name = "flpTasks";
-            flpTasks.Size = new Size(626, 420);
+            flpTasks.Size = new Size(626, 596);
             flpTasks.TabIndex = 5;
             // 
-            // pnlAddTask
+            // txtTaskTitle
             // 
-            pnlAddTask.Controls.Add(txtTaskDesc);
-            pnlAddTask.CustomizableEdges = customizableEdges25;
-            pnlAddTask.FillColor = Color.FromArgb(224, 224, 224);
-            pnlAddTask.Location = new Point(877, 43);
-            pnlAddTask.Name = "pnlAddTask";
-            pnlAddTask.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            pnlAddTask.Size = new Size(407, 260);
-            pnlAddTask.TabIndex = 4;
+            txtTaskTitle.Animated = true;
+            txtTaskTitle.BorderRadius = 15;
+            txtTaskTitle.BorderThickness = 2;
+            txtTaskTitle.CustomizableEdges = customizableEdges27;
+            txtTaskTitle.DefaultText = "";
+            txtTaskTitle.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtTaskTitle.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtTaskTitle.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtTaskTitle.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtTaskTitle.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTaskTitle.Font = new Font("Segoe UI", 9F);
+            txtTaskTitle.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTaskTitle.Location = new Point(3, 4);
+            txtTaskTitle.Margin = new Padding(3, 4, 3, 4);
+            txtTaskTitle.Name = "txtTaskTitle";
+            txtTaskTitle.PlaceholderText = "Görev Başlığı Girin...";
+            txtTaskTitle.SelectedText = "";
+            txtTaskTitle.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            txtTaskTitle.Size = new Size(286, 60);
+            txtTaskTitle.TabIndex = 9;
+            txtTaskTitle.TextAlign = HorizontalAlignment.Center;
             // 
             // txtTaskDesc
             // 
-            txtTaskDesc.CustomizableEdges = customizableEdges23;
+            txtTaskDesc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtTaskDesc.CustomizableEdges = customizableEdges25;
             txtTaskDesc.DefaultText = "";
             txtTaskDesc.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtTaskDesc.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -352,51 +374,48 @@ namespace ToDo_Final
             txtTaskDesc.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTaskDesc.Font = new Font("Segoe UI", 9F);
             txtTaskDesc.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTaskDesc.Location = new Point(3, 4);
+            txtTaskDesc.Location = new Point(3, 72);
             txtTaskDesc.Margin = new Padding(3, 4, 3, 4);
             txtTaskDesc.Multiline = true;
             txtTaskDesc.Name = "txtTaskDesc";
             txtTaskDesc.PlaceholderText = "";
             txtTaskDesc.SelectedText = "";
-            txtTaskDesc.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            txtTaskDesc.Size = new Size(401, 252);
+            txtTaskDesc.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            txtTaskDesc.Size = new Size(401, 184);
             txtTaskDesc.TabIndex = 1;
             // 
-            // taskCalendar
+            // btnAddTask
             // 
-            taskCalendar.Checked = true;
-            taskCalendar.CustomizableEdges = customizableEdges27;
-            taskCalendar.Font = new Font("Segoe UI", 9F);
-            taskCalendar.Format = DateTimePickerFormat.Long;
-            taskCalendar.Location = new Point(242, 12);
-            taskCalendar.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            taskCalendar.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            taskCalendar.Name = "taskCalendar";
-            taskCalendar.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            taskCalendar.Size = new Size(250, 45);
-            taskCalendar.TabIndex = 3;
-            taskCalendar.Value = new DateTime(2026, 5, 13, 14, 15, 48, 316);
+            btnAddTask.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddTask.BorderColor = Color.Silver;
+            btnAddTask.BorderRadius = 15;
+            btnAddTask.CustomizableEdges = customizableEdges23;
+            btnAddTask.DisabledState.BorderColor = Color.DarkGray;
+            btnAddTask.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnAddTask.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnAddTask.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAddTask.Font = new Font("Segoe UI", 9F);
+            btnAddTask.ForeColor = Color.White;
+            btnAddTask.Location = new Point(280, 214);
+            btnAddTask.Name = "btnAddTask";
+            btnAddTask.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnAddTask.Size = new Size(124, 43);
+            btnAddTask.TabIndex = 2;
+            btnAddTask.Text = "Görev Ekle";
+            btnAddTask.Click += btnAddTask_Click;
             // 
-            // guna2Button1
+            // pnlAddTask
             // 
-            guna2Button1.BackColor = Color.Transparent;
-            guna2Button1.BorderColor = Color.Silver;
-            guna2Button1.BorderRadius = 15;
-            guna2Button1.BorderThickness = 2;
-            guna2Button1.CustomizableEdges = customizableEdges29;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.Font = new Font("Segoe UI", 11F);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.HoverState.ForeColor = Color.FromArgb(248, 250, 252);
-            guna2Button1.Location = new Point(8, 173);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            guna2Button1.Size = new Size(225, 56);
-            guna2Button1.TabIndex = 5;
-            guna2Button1.Text = "Ana Sayfa";
+            pnlAddTask.Controls.Add(btnAddTask);
+            pnlAddTask.Controls.Add(txtTaskDesc);
+            pnlAddTask.Controls.Add(txtTaskTitle);
+            pnlAddTask.CustomizableEdges = customizableEdges29;
+            pnlAddTask.FillColor = Color.FromArgb(224, 224, 224);
+            pnlAddTask.Location = new Point(877, 43);
+            pnlAddTask.Name = "pnlAddTask";
+            pnlAddTask.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            pnlAddTask.Size = new Size(407, 260);
+            pnlAddTask.TabIndex = 4;
             // 
             // guna2ShadowForm1
             // 
@@ -435,7 +454,6 @@ namespace ToDo_Final
             Text = "DashboardForm";
             FormClosed += DashboardForm_FormClosed;
             pnlMain.ResumeLayout(false);
-            pnlMain.PerformLayout();
             guna2CustomGradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             pnlTaskDetails.ResumeLayout(false);
@@ -448,7 +466,6 @@ namespace ToDo_Final
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel pnlMain;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtTaskTitle;
         private Guna.UI2.WinForms.Guna2DateTimePicker taskCalendar;
         private Guna.UI2.WinForms.Guna2Panel pnlAddTask;
         private Guna.UI2.WinForms.Guna2Button btnAddTask;
@@ -468,5 +485,6 @@ namespace ToDo_Final
         private Guna.UI2.WinForms.Guna2HtmlLabel lblUserName;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblUserRole;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtTaskTitle;
     }
 }

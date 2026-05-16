@@ -64,25 +64,20 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
 
         private void btnChangeTheme_Click(object sender, EventArgs e)
         {
-            // 1. Windows'un hazır renk seçici penceresini oluştur
-            ColorDialog colorDialog = new ColorDialog();
-            colorDialog.FullOpen = true; // Özel renkler oluşturmaya izin ver
-
-            // 2. Eğer kullanıcı bir renk seçip "Tamam"a basarsa
-            if (colorDialog.ShowDialog() == DialogResult.OK)
+            using (ThemePickerForm themePicker = new ThemePickerForm())
             {
-                // Seçilen rengi al ve forma (veya panele) uygula
-                Color selectedColor = colorDialog.Color;
-                this.BackColor = selectedColor;
+                if (themePicker.ShowDialog() == DialogResult.OK)
+                {
+                    Color selectedColor = themePicker.SelectedColor;
 
-                // Eğer rengi sadece sol menüye uygulamak istersen üstteki satırı silip şunu kullanabilirsin:
-                // pnlSidebar.FillColor = selectedColor;
+                    // Seçilen rengi ana forma uygula
+                    this.BackColor = selectedColor;
+                    // Eğer sol menüyü boyamak istersen: pnlSidebar.FillColor = selectedColor;
 
-                // 3. Seçilen rengi veritabanının anlayacağı HEX formatına (Örn: #1A1F2E) dönüştür
-                string hexColor = "#" + selectedColor.R.ToString("X2") + selectedColor.G.ToString("X2") + selectedColor.B.ToString("X2");
-
-                // 4. Veritabanını güncelle
-                UpdateThemeInDatabase(hexColor);
+                    // Rengi HEX formatına çevirip veritabanına kaydet
+                    string hexColor = "#" + selectedColor.R.ToString("X2") + selectedColor.G.ToString("X2") + selectedColor.B.ToString("X2");
+                    UpdateThemeInDatabase(hexColor);
+                }
             }
         }
 
@@ -122,6 +117,11 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
                     MessageBox.Show("Renk veritabanına kaydedilirken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

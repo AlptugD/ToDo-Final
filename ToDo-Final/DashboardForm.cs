@@ -74,6 +74,9 @@ namespace ToDo_Final // Kendi projenin namespace'ini kontrol etmeyi unutma
             ApplyButtonModernStyle(btnAddTask, buttonColor);
             ApplyButtonModernStyle(btnSendComment, buttonColor);
             ApplyButtonModernStyle(guna2Button1, buttonColor);
+            ApplyButtonModernStyle(guna2Button4, buttonColor);
+            ApplyButtonModernStyle(guna2Button5, buttonColor);
+            ApplyButtonModernStyle(btnChangeTheme, buttonColor);
 
             // Takvim arka planını da temaya uygun yapıyoruz
             if (taskCalendar != null)

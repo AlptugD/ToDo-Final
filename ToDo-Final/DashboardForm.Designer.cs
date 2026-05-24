@@ -148,6 +148,7 @@ namespace ToDo_Final
             taskCalendarDate.Size = new Size(201, 42);
             taskCalendarDate.TabIndex = 10;
             taskCalendarDate.Value = new DateTime(2026, 5, 17, 20, 32, 36, 977);
+            taskCalendarDate.MouseDown += taskCalendarDate_MouseDown;
             // 
             // cmbHour
             // 

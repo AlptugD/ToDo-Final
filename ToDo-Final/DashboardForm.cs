@@ -698,6 +698,18 @@ namespace ToDo_Final
         }
 
         /// <summary>
+        /// Takvim kontrolünün herhangi bir yerine tıklandığında takvim açılır penceresini (tablo/takvim görünümü) tetikler.
+        /// </summary>
+        private void taskCalendarDate_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (taskCalendarDate != null && taskCalendarDate.Enabled)
+            {
+                taskCalendarDate.Focus();
+                SendKeys.Send("%{DOWN}");
+            }
+        }
+
+        /// <summary>
         /// Sol sidebar'daki Profilim butonuna tıklandığında profil düzenleme penceresini açar.
         /// </summary>
         private void btnProfile_Click(object sender, EventArgs e)

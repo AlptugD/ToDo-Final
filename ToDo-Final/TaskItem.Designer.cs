@@ -102,7 +102,7 @@ namespace ToDo_Final
             // 
             lblDate.AutoSize = true;
             lblDate.BackColor = Color.Transparent;
-            lblDate.Location = new Point(9, 118);
+            lblDate.Location = new Point(9, 98);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(40, 20);
             lblDate.TabIndex = 3;
@@ -134,7 +134,7 @@ namespace ToDo_Final
             lblCountdown.BackColor = Color.Transparent;
             lblCountdown.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             lblCountdown.ForeColor = Color.FromArgb(255, 128, 128);
-            lblCountdown.Location = new Point(320, 118);
+            lblCountdown.Location = new Point(9, 125);
             lblCountdown.Name = "lblCountdown";
             lblCountdown.Size = new Size(143, 21);
             lblCountdown.TabIndex = 6;

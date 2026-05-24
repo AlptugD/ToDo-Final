@@ -43,6 +43,7 @@ namespace ToDo_Final
             // lblTitle
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
             lblTitle.Location = new Point(15, 15);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(115, 28);
@@ -52,25 +53,28 @@ namespace ToDo_Final
             btnClose.BorderRadius = 10;
             btnClose.Cursor = Cursors.Hand;
             btnClose.CustomizableEdges = customizableEdges1;
-            btnClose.FillColor = Color.Red;
+            btnClose.FillColor = Color.Transparent;
             btnClose.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnClose.ForeColor = Color.Red;
+            btnClose.ForeColor = Color.LightGray;
+            btnClose.HoverState.FillColor = Color.FromArgb(233, 64, 87);
+            btnClose.HoverState.ForeColor = Color.White;
             btnClose.Location = new Point(305, 12);
             btnClose.Name = "btnClose";
             btnClose.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnClose.Size = new Size(30, 30);
             btnClose.TabIndex = 1;
-            btnClose.Text = "X";
+            btnClose.Text = "✕";
             btnClose.Click += btnClose_Click;
             // flpStickers
             flpStickers.AutoScroll = true;
+            flpStickers.BackColor = Color.Transparent;
             flpStickers.Location = new Point(15, 55);
             flpStickers.Name = "flpStickers";
             flpStickers.Padding = new Padding(5);
             flpStickers.Size = new Size(320, 330);
             flpStickers.TabIndex = 2;
             // StickerForm
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(28, 28, 44);
             ClientSize = new Size(350, 400);
             Controls.Add(lblTitle);
             Controls.Add(btnClose);

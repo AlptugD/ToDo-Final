@@ -1,5 +1,3 @@
 USE ASyncTaskDB;
 GO
-
-ALTER TABLE Comments ADD Username NVARCHAR(100);
-ALTER TABLE Comments ADD CreatedAt DATETIME;
+ALTER TABLE Tasks ADD StartDate DATETIME;

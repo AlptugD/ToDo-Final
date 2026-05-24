@@ -1,4 +1,4 @@
-﻿namespace ToDo_Final
+namespace ToDo_Final
 {
     partial class ThemePickerForm
     {
@@ -49,7 +49,7 @@
             // 
             // guna2Elipse1
             // 
-            guna2Elipse1.BorderRadius = 20;
+            guna2Elipse1.BorderRadius = 25;
             guna2Elipse1.TargetControl = this;
             // 
             // guna2ShadowForm1
@@ -59,100 +59,105 @@
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 12F);
+            guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(12, 30);
+            guna2HtmlLabel1.Location = new Point(14, 25);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(101, 30);
+            guna2HtmlLabel1.Size = new Size(95, 27);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Tema Seçin";
+            guna2HtmlLabel1.Text = "Renk Seçin";
             // 
             // guna2CircleButton1
             // 
-            guna2CircleButton1.FillColor = Color.FromArgb(36, 32, 55);
+            guna2CircleButton1.FillColor = Color.FromArgb(138, 35, 135);
             guna2CircleButton1.Font = new Font("Segoe UI", 9F);
             guna2CircleButton1.ForeColor = Color.White;
-            guna2CircleButton1.Location = new Point(33, 84);
+            guna2CircleButton1.Location = new Point(33, 75);
             guna2CircleButton1.Name = "guna2CircleButton1";
             guna2CircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CircleButton1.ShadowDecoration.Enabled = true;
+            guna2CircleButton1.ShadowDecoration.Color = Color.FromArgb(138, 35, 135);
+            guna2CircleButton1.ShadowDecoration.Depth = 15;
             guna2CircleButton1.Size = new Size(56, 56);
             guna2CircleButton1.TabIndex = 7;
             guna2CircleButton1.Click += ColorButton_Click;
+            guna2CircleButton1.Cursor = Cursors.Hand;
             // 
             // guna2CircleButton2
             // 
-            guna2CircleButton2.DisabledState.BorderColor = Color.DarkGray;
-            guna2CircleButton2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2CircleButton2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2CircleButton2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2CircleButton2.FillColor = Color.FromArgb(0, 123, 255);
             guna2CircleButton2.Font = new Font("Segoe UI", 9F);
             guna2CircleButton2.ForeColor = Color.White;
-            guna2CircleButton2.Location = new Point(33, 146);
+            guna2CircleButton2.Location = new Point(33, 140);
             guna2CircleButton2.Name = "guna2CircleButton2";
             guna2CircleButton2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CircleButton2.ShadowDecoration.Enabled = true;
+            guna2CircleButton2.ShadowDecoration.Color = Color.FromArgb(0, 123, 255);
+            guna2CircleButton2.ShadowDecoration.Depth = 15;
             guna2CircleButton2.Size = new Size(56, 56);
             guna2CircleButton2.TabIndex = 2;
             guna2CircleButton2.Click += ColorButton_Click;
+            guna2CircleButton2.Cursor = Cursors.Hand;
             // 
             // guna2CircleButton3
             // 
-            guna2CircleButton3.DisabledState.BorderColor = Color.DarkGray;
-            guna2CircleButton3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2CircleButton3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2CircleButton3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2CircleButton3.FillColor = Color.FromArgb(40, 167, 69);
             guna2CircleButton3.Font = new Font("Segoe UI", 9F);
             guna2CircleButton3.ForeColor = Color.White;
-            guna2CircleButton3.Location = new Point(33, 208);
+            guna2CircleButton3.Location = new Point(33, 205);
             guna2CircleButton3.Name = "guna2CircleButton3";
             guna2CircleButton3.ShadowDecoration.CustomizableEdges = customizableEdges5;
             guna2CircleButton3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CircleButton3.ShadowDecoration.Enabled = true;
+            guna2CircleButton3.ShadowDecoration.Color = Color.FromArgb(40, 167, 69);
+            guna2CircleButton3.ShadowDecoration.Depth = 15;
             guna2CircleButton3.Size = new Size(56, 56);
             guna2CircleButton3.TabIndex = 3;
             guna2CircleButton3.Click += ColorButton_Click;
+            guna2CircleButton3.Cursor = Cursors.Hand;
             // 
             // guna2CircleButton4
             // 
-            guna2CircleButton4.DisabledState.BorderColor = Color.DarkGray;
-            guna2CircleButton4.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2CircleButton4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2CircleButton4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2CircleButton4.FillColor = Color.FromArgb(253, 126, 20);
+            guna2CircleButton4.FillColor = Color.FromArgb(233, 64, 87);
             guna2CircleButton4.Font = new Font("Segoe UI", 9F);
             guna2CircleButton4.ForeColor = Color.White;
-            guna2CircleButton4.Location = new Point(33, 332);
+            guna2CircleButton4.Location = new Point(33, 335);
             guna2CircleButton4.Name = "guna2CircleButton4";
             guna2CircleButton4.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2CircleButton4.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CircleButton4.ShadowDecoration.Enabled = true;
+            guna2CircleButton4.ShadowDecoration.Color = Color.FromArgb(233, 64, 87);
+            guna2CircleButton4.ShadowDecoration.Depth = 15;
             guna2CircleButton4.Size = new Size(56, 56);
             guna2CircleButton4.TabIndex = 4;
             guna2CircleButton4.Click += ColorButton_Click;
+            guna2CircleButton4.Cursor = Cursors.Hand;
             // 
             // guna2CircleButton5
             // 
-            guna2CircleButton5.DisabledState.BorderColor = Color.DarkGray;
-            guna2CircleButton5.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2CircleButton5.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2CircleButton5.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2CircleButton5.FillColor = Color.FromArgb(111, 66, 193);
+            guna2CircleButton5.FillColor = Color.FromArgb(245, 175, 25);
             guna2CircleButton5.Font = new Font("Segoe UI", 9F);
             guna2CircleButton5.ForeColor = Color.White;
             guna2CircleButton5.Location = new Point(33, 270);
             guna2CircleButton5.Name = "guna2CircleButton5";
             guna2CircleButton5.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2CircleButton5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CircleButton5.ShadowDecoration.Enabled = true;
+            guna2CircleButton5.ShadowDecoration.Color = Color.FromArgb(245, 175, 25);
+            guna2CircleButton5.ShadowDecoration.Depth = 15;
             guna2CircleButton5.Size = new Size(56, 56);
             guna2CircleButton5.TabIndex = 5;
             guna2CircleButton5.Click += ColorButton_Click;
+            guna2CircleButton5.Cursor = Cursors.Hand;
             // 
             // guna2ControlBox1
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.BackColor = Color.Red;
+            guna2ControlBox1.BackColor = Color.Transparent;
             guna2ControlBox1.CustomizableEdges = customizableEdges1;
-            guna2ControlBox1.FillColor = Color.Red;
+            guna2ControlBox1.FillColor = Color.Transparent;
             guna2ControlBox1.IconColor = Color.White;
             guna2ControlBox1.Location = new Point(90, 0);
             guna2ControlBox1.Name = "guna2ControlBox1";
@@ -164,11 +169,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(26, 31, 46);
+            BackColor = Color.FromArgb(28, 28, 44);
             ClientSize = new Size(123, 410);
             Controls.Add(guna2ControlBox1);
-            Controls.Add(guna2CircleButton5);
             Controls.Add(guna2CircleButton4);
+            Controls.Add(guna2CircleButton5);
             Controls.Add(guna2CircleButton3);
             Controls.Add(guna2CircleButton2);
             Controls.Add(guna2CircleButton1);

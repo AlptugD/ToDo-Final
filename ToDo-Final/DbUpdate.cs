@@ -1,33 +1,53 @@
 using System;
 using Microsoft.Data.SqlClient;
 
-internal static class DbUpdate
+namespace ToDo_Final
 {
-    public static void Run  ()
+    /// <summary>
+    /// Veritabanı şemasını güncellemek (kolon isimlerini değiştirmek veya yeni kolonlar eklemek) için tasarlanmış göç (migration) yardımcı sınıfı.
+    /// </summary>
+    internal static class DbUpdate
     {
-        string connectionString = @"Server=AD\SQLEXPRESS;Database=ASyncTaskDB;Trusted_Connection=True;TrustServerCertificate=True;";
-        using (SqlConnection conn = new SqlConnection(connectionString))
+        /// <summary>
+        /// Şema güncellemelerini çalıştırır. Tasks tablosundaki kolonları düzenler ve yeni tarih alanları ekler.
+        /// </summary>
+        public static void Run()
         {
-            conn.Open();
-            try
+            // Yerel SQL Server Express veritabanı bağlantı dizesi
+            string connectionString = @"Server=AD\SQLEXPRESS;Database=ASyncTaskDB;Trusted_Connection=True;TrustServerCertificate=True;";
+            
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("EXEC sp_rename 'Tasks.TaskDate', 'StartDate', 'COLUMN';", conn))
+                conn.Open();
+                
+                // 1. Adım: Eski 'TaskDate' kolonunu 'StartDate' (Başlangıç Tarihi) olarak yeniden adlandırır
+                try
                 {
-                    cmd.ExecuteNonQuery();
-                    Console.WriteLine("Renamed TaskDate to StartDate");
+                    using (SqlCommand cmd = new SqlCommand("EXEC sp_rename 'Tasks.TaskDate', 'StartDate', 'COLUMN';", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("Bilgi: 'TaskDate' kolonu başarıyla 'StartDate' olarak adlandırıldı.");
+                    }
                 }
-            }
-            catch (Exception ex) { Console.WriteLine("Rename failed or already done: " + ex.Message); }
+                catch (Exception ex) 
+                { 
+                    Console.WriteLine("Bilgi: Kolon yeniden adlandırılamadı (daha önce çalıştırılmış olabilir): " + ex.Message); 
+                }
 
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand("ALTER TABLE Tasks ADD EndDate DATETIME;", conn))
+                // 2. Adım: Görev bitiş saatlerinin tutulması için tabloya 'EndDate' kolonu ekler
+                try
                 {
-                    cmd.ExecuteNonQuery();
-                    Console.WriteLine("Added EndDate");
+                    using (SqlCommand cmd = new SqlCommand("ALTER TABLE Tasks ADD EndDate DATETIME;", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("Bilgi: 'EndDate' kolonu başarıyla tabloya eklendi.");
+                    }
+                }
+                catch (Exception ex) 
+                { 
+                    Console.WriteLine("Bilgi: 'EndDate' kolonu eklenemedi (zaten veritabanında mevcut olabilir): " + ex.Message); 
                 }
             }
-            catch (Exception ex) { Console.WriteLine("Add EndDate failed or already exists: " + ex.Message); }
         }
     }
 }

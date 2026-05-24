@@ -1,138 +1,141 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace ToDo_Final
 {
+    /// <summary>
+    /// Kullanıcıların sisteme güvenli bir şekilde giriş yapmasını sağlayan modern giriş ekranı formu.
+    /// Guna.UI2 bileşenleri ile donatılmış şık ve duyarlı (responsive) bir arayüz sunar.
+    /// </summary>
     public partial class LoginForm : Form
     {
-        // Uygulamanın ana tema rengi.
-        private Color appThemeColor = Color.FromArgb(94, 148, 255); // Varsayılan mavi
-        private Color appBackgroundColor = Color.White; // Seçilebilir arka plan rengi
+        // Uygulamanın varsayılan tema rengi (Mavi tonu)
+        private Color appThemeColor = Color.FromArgb(94, 148, 255);
+        // Seçilebilir arka plan rengi
+        private Color appBackgroundColor = Color.White;
 
+        /// <summary>
+        /// Sınıfın kurucu metodu. Arayüz bileşenlerini yükler ve olay dinleyicilerini (Event Handlers) bağlar.
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
 
+            // Form yüklenme (Load) ve yeniden boyutlanma (Resize) olaylarını bağla
             this.Load += LoginForm_Load;
             this.Resize += LoginForm_Resize;
 
+            // Giriş ve çıkış butonlarının olaylarını bağla
             if (btnLogin != null) btnLogin.Click += btnLogin_Click;
             if (btnExit != null) btnExit.Click += btnExit_Click;
         }
 
+        /// <summary>
+        /// Form ilk yüklendiğinde tetiklenen olay. Kontrolleri ekrana göre ortalar.
+        /// </summary>
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            ApplyThemeColors();
-            CenterControls(); // Yüklenirken kontrolleri ortala
+            CenterControls(); // Arayüz kontrollerini formun sağ panele göre ortalar
         }
 
+        /// <summary>
+        /// Form yeniden boyutlandırıldığında tetiklenen olay. Kontrolleri dinamik olarak tekrar ortalar.
+        /// </summary>
         private void LoginForm_Resize(object sender, EventArgs e)
         {
-            CenterControls(); // Boyut değişirse kontrolleri tekrar ortala
+            CenterControls(); // Yeniden boyutlandırıldığında hizalamayı korur
         }
 
-        // Bileşenleri formun yatay merkezine sabitleyen metot
+        /// <summary>
+        /// Giriş formu bileşenlerini (Metin kutuları, butonlar, başlıklar) formun sağ yarısının yatay merkezine sabitleyen metot.
+        /// Form boyutu değiştikçe kontrollerin ortalı ve dengeli görünmesini sağlar.
+        /// </summary>
         private void CenterControls()
         {
-            int centerWidth = this.ClientSize.Width / 2;
+            // Sol görsel panelin genişliği (Varsayılan olarak 280 piksel alınır)
+            int leftPanelWidth = pnlLeft != null ? pnlLeft.Width : 280;
+            // Sağ taraftaki boş alanın orta noktasının yatay koordinatını hesapla
+            int rightAreaCenter = leftPanelWidth + (this.ClientSize.Width - leftPanelWidth) / 2;
 
+            // Kullanıcı adı metin kutusunu ortala
             if (txtUsername != null)
-                txtUsername.Left = centerWidth - (txtUsername.Width / 2);
+                txtUsername.Left = rightAreaCenter - (txtUsername.Width / 2);
 
+            // Şifre metin kutusunu ortala
             if (txtPassword != null)
-                txtPassword.Left = centerWidth - (txtPassword.Width / 2);
+                txtPassword.Left = rightAreaCenter - (txtPassword.Width / 2);
 
+            // Giriş Yap butonunu ortala
             if (btnLogin != null)
-                btnLogin.Left = centerWidth - (btnLogin.Width / 2);
+                btnLogin.Left = rightAreaCenter - (btnLogin.Width / 2);
+
+            // Ana başlık etiketini ortala
+            if (Headertxt != null)
+                Headertxt.Left = rightAreaCenter - (Headertxt.Width / 2);
+
+            // Alt başlık etiketini ortala
+            if (lblSubHeader != null)
+                lblSubHeader.Left = rightAreaCenter - (lblSubHeader.Width / 2);
+
+            // Kayıt Ol bağlantısını kullanıcı adı kutusunun sol kenarına hizala
+            if (lnkRegister != null)
+                lnkRegister.Left = rightAreaCenter - (txtUsername.Width / 2);
+
+            // Şifremi Unuttum bağlantısını kullanıcı adı kutusunun sağ kenarına hizala
+            if (lnkForgot != null)
+                lnkForgot.Left = rightAreaCenter + (txtUsername.Width / 2) - lnkForgot.Width;
         }
 
-        // Dinamik renkleri ve modern arayüz tasarımını uygulayan metot
-        private void ApplyThemeColors()
-        {
-
-            if (btnLogin != null)
-            {
-                btnLogin.FillColor = appThemeColor;
-                btnLogin.ForeColor = Color.White;
-                // Buton gölgesi
-                btnLogin.ShadowDecoration.Enabled = true;
-                btnLogin.ShadowDecoration.BorderRadius = btnLogin.BorderRadius > 0 ? btnLogin.BorderRadius : 15;
-                btnLogin.ShadowDecoration.Color = ControlPaint.Dark(appThemeColor, 0.2f);
-                btnLogin.ShadowDecoration.Depth = 15;
-            }
-
-            // Metin kutularını modernleştir
-            ModernizeTextBox(txtUsername);
-            ModernizeTextBox(txtPassword);
-        }
-
-        private void ModernizeTextBox(Guna.UI2.WinForms.Guna2TextBox txt)
-        {
-            if (txt == null) return;
-            
-            txt.BorderRadius = 15;
-            txt.BorderThickness = 1;
-            txt.BorderColor = Color.FromArgb(210, 210, 210);
-            txt.FillColor = Color.White;
-            
-            // Odaklanma renkleri
-            txt.FocusedState.BorderColor = appThemeColor;
-            txt.HoverState.BorderColor = appThemeColor;
-
-            // Yazı tipi ve dolgu
-            txt.Font = new Font("Segoe UI", 11F);
-            txt.ForeColor = Color.FromArgb(64, 64, 64);
-            
-            // Hafif bir gölge efekti
-            txt.ShadowDecoration.Enabled = true;
-            txt.ShadowDecoration.BorderRadius = 15;
-            txt.ShadowDecoration.Color = Color.LightGray;
-            txt.ShadowDecoration.Depth = 10;
-        }
-
+        /// <summary>
+        /// Giriş Yap butonuna tıklandığında tetiklenen ve kullanıcı kimlik bilgilerini SQL veritabanında sorgulayan metot.
+        /// </summary>
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
-            // Sunucu adını (Server) kendi SQL Server ismine göre güncellemelisin. 
-            // "." veya "localhost" genellikle yerel sunucuyu temsil eder.
+            // SQL Server Express veritabanı bağlantı dizesi
             string connectionString = @"Server=AD\SQLEXPRESS;Database=ASyncTaskDB;Trusted_Connection=True;TrustServerCertificate=True;";
 
-            using (Microsoft.Data.SqlClient.SqlConnection conn = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
-                    conn.Open(); // Veritabanı kapısını aç
+                    conn.Open(); // Veritabanı bağlantısını aç
 
-                    // Kullanıcı adı ve şifreyi güvenli bir şekilde kontrol eden SQL sorgusu
+                    // Kullanıcı adı ve şifreyi güvenli bir şekilde kontrol edip rolünü ve tema rengini alan SQL sorgusu
                     string query = "SELECT Role, ThemeColor FROM Users WHERE Username = @user AND Password = @pass";
 
-                    using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        // Parametreleri ekle (SQL Injection saldırılarını önlemek için zorunludur)
+                        // SQL Injection saldırılarını önlemek için parametrik sorgu yapısı kullanıyoruz
                         cmd.Parameters.AddWithValue("@user", username);
                         cmd.Parameters.AddWithValue("@pass", password);
 
-                        using (Microsoft.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read()) // Eğer eşleşen bir kayıt bulunursa
+                            if (reader.Read()) // Eşleşen kullanıcı kaydı bulunursa
                             {
                                 string role = reader["Role"].ToString();
                                 string themeColor = reader["ThemeColor"].ToString();
 
-                                // Hoş geldin mesajını göster
-                                MessageBox.Show($"{role} olarak giriş yapıldı!", "Hoş Geldiniz", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                // Köprüyü kur: DashboardForm'a bilgileri göndererek oluştur
-                                DashboardForm dashboard = new DashboardForm(username, role, themeColor);
-                                dashboard.Show(); // Ana formu göster
-
-                                this.Hide(); // Giriş formunu arka planda gizle
+                                // SaaS görünümlü şık bir yükleme (Loading) modal penceresi göster
+                                using (LoadingForm loading = new LoadingForm())
+                                {
+                                    if (loading.ShowDialog() == DialogResult.OK)
+                                    {
+                                        // Ana paneli (DashboardForm) yetki ve tema bilgileriyle aç
+                                        DashboardForm dashboard = new DashboardForm(username, role, themeColor);
+                                        dashboard.Show();
+                                        this.Hide(); // Giriş formunu arka planda gizle
+                                    }
+                                }
                             }
                             else
                             {
+                                // Hatalı giriş uyarısı
                                 MessageBox.Show("Hatalı kullanıcı adı veya şifre!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
@@ -140,12 +143,33 @@ namespace ToDo_Final
                 }
                 catch (Exception ex)
                 {
-                    // Bağlantı başarısız olursa nedenini göster
+                    // Veritabanı bağlantı hatasını kullanıcıya göster
                     MessageBox.Show("Veritabanına bağlanılamadı. Hata: " + ex.Message, "Bağlantı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
+        /// <summary>
+        /// Kayıt Ol linkine tıklandığında yeni kullanıcı kayıt formunu (RegisterForm) açan metot.
+        /// </summary>
+        private void lnkRegister_Click(object sender, EventArgs e)
+        {
+            RegisterForm register = new RegisterForm();
+            register.ShowDialog(); // Kayıt formunu mod olarak açar
+        }
+
+        /// <summary>
+        /// Şifremi Unuttum linkine tıklandığında şifre sıfırlama formunu (ForgotPasswordForm) açan metot.
+        /// </summary>
+        private void lnkForgot_Click(object sender, EventArgs e)
+        {
+            ForgotPasswordForm forgot = new ForgotPasswordForm();
+            forgot.ShowDialog(); // Şifre sıfırlama formunu modal açar
+        }
+
+        /// <summary>
+        /// Çıkış butonuna tıklandığında uygulamayı tamamen sonlandıran metot.
+        /// </summary>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
